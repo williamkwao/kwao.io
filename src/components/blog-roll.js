@@ -1,7 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './preview-compatible-image'
+import React from "react"
+import PropTypes from "prop-types"
+import { Link, graphql, StaticQuery } from "gatsby"
+import PreviewCompatibleImage from "./preview-compatible-image"
+import styled from "styled-components"
 
 class BlogRoll extends React.Component {
   render() {
@@ -9,55 +10,77 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
+            <ArticleCard
+              className={`${
+                post.frontmatter.featuredpost ? "is-featured" : ""
+              }`}
+              key={post.id}
+            >
+              <Link
+                className=""
+                to={post.fields.slug}
               >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </article>
-            </div>
+                <div className="inner">
+                  <header>
+                    <p>{post.frontmatter.date}</p>
+                    {post.frontmatter.featuredimage ? (
+                      <div className="thumbnail">
+                        <PreviewCompatibleImage
+                          imageInfo={{
+                            image: post.frontmatter.featuredimage,
+                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          }}
+                        />
+                      </div>
+                    ) : null}
+
+                    <h2 className="title">{post.frontmatter.title}</h2>
+                  </header>
+                  <p>{post.frontmatter.description}</p>
+                </div>
+              </Link>
+            </ArticleCard>
           ))}
       </div>
     )
   }
 }
 
+const ArticleCard = styled.article`
+  /* padding: 16px; */
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-image: initial;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px;
+  border-radius: 5px;
+  a {
+    :visited {
+      color: inherit;
+    }
+    text-decoration: none;
+    color: inherit;
+  }
+  .inner{
+      padding: 16px;
+  }
+  .title{
+      line-height: 36px;
+      font-size: 28px;
+      font-style: normal;
+      margin-bottom: 6px;
+  } 
+  .thumbnail {
+    object-fit: cover;
+    .img {
+      max-height: 180px !important;
+    }
+    margin-bottom: 16px;
+  }
+`
 BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -83,12 +106,13 @@ export default () => (
               }
               frontmatter {
                 title
+                description
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
+                    fluid(maxWidth: 630, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }

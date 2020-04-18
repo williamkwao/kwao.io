@@ -1,38 +1,37 @@
-import React from 'react'
+import React from "react"
 
-import Layout from '../../components/layout'
-import BlogRoll from '../../components/blog-roll'
+import Layout from "../../components/layout"
+import BlogRoll from "../../components/blog-roll"
+import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/blog-index.jpg')`,
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}
-          >
-            Latest Stories
-          </h1>
-        </div>
-        <section className="section">
-          <div className="container">
+        <Helmet title="Blog posts" />
+        <BlogPage>
+          <div className="header">
+            <h1>Latest Posts</h1>
+          </div>
+          <section className="section">
             <div className="content">
               <BlogRoll />
             </div>
-          </div>
-        </section>
+          </section>
+        </BlogPage>
       </Layout>
     )
   }
 }
+
+const BlogPage = styled.div`
+  .header {
+    text-align: center;
+    padding: 15px;
+  }
+  .content {
+    max-width: 650px;
+    margin: auto;
+  }
+`

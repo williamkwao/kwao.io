@@ -1,23 +1,40 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import React from "react"
+import PropTypes from "prop-types"
+import Img from "gatsby-image"
 
 const PreviewCompatibleImage = ({ imageInfo }) => {
-  const imageStyle = { borderRadius: '5px' }
-  const { alt = '', childImageSharp, image } = imageInfo
+  const imageStyle = { borderRadius: "5px", maxWidth: '100%', maxHeight: '100%'}
+  const { alt = "", childImageSharp, image } = imageInfo
 
   if (!!image && !!image.childImageSharp) {
     return (
-      <Img style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
+      <Img
+        className= "img"
+        objectFit="cover"
+        objectPosition="50% 50%"
+        style={imageStyle}
+        fluid={image.childImageSharp.fluid}
+        alt={alt}
+      />
     )
   }
 
   if (!!childImageSharp) {
-    return <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
+    return (
+      <Img
+        objectFit="contain"
+        style={imageStyle}
+        fluid={childImageSharp.fluid}
+        objectFit="cover"
+        objectPosition="50% 50%"
+        alt={alt}
+        className="img"
+      />
+    )
   }
 
-  if (!!image && typeof image === 'string')
-    return <img style={imageStyle} src={image} alt={alt} />
+  if (!!image && typeof image === "string")
+    return <img style={imageStyle} src={image} alt={alt}  className="img"/>
 
   return null
 }

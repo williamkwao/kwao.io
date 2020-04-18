@@ -9,32 +9,35 @@ import {
   faTwitter,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
+import Layout from "../components/layout"
 
 const IndexPage = () => (
-  <HomePage>
-    <SEO title="Home" />
-    <div className="landing">
-      <div className="content">
-        <div>
-          <h2 className="title">
-            I’m a Software Engineer, Builder & Minimalist living in the DC Metro
-            Area
-          </h2>
-        </div>
-        <div className="logos">
-          {social.map((data, idx) => {
-            return (
-              <div className="row" key={idx}>
-                <a href={data.link} target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={data.logo} />
-                </a>
-              </div>
-            )
-          })}
+  <Layout>
+    <HomePage>
+      <SEO title="Kwao" />
+      <div className="landing">
+        <div className="content">
+          <div>
+            <h2 className="title">
+              I’m a Software Engineer, Builder & Minimalist living in the DC
+              Metro Area
+            </h2>
+          </div>
+          <div className="logos">
+            {social.map((data, idx) => {
+              return (
+                <div className="row" key={idx}>
+                  <a href={data.link} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={data.logo} />
+                  </a>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
-    </div>
-  </HomePage>
+    </HomePage>
+  </Layout>
 )
 
 const social = [
@@ -76,7 +79,7 @@ const HomePage = styled.div`
     }
   }
   .landing {
-    min-height: 100vh;
+    min-height: calc(100vh - 75px);
     display: flex;
     align-items: center;
     justify-items: center;
