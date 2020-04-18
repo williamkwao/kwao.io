@@ -40,7 +40,7 @@ Here are a few steps you can take to simplify the process of running the app on 
 
 * **Ensure that the default start and build scripts work**: For a node application this is the npm start script and for Java application, this can be the Maven run or Gradle run command.
 * **Custom shell scripts to set up and build in dev environment:**Some projects might have custom build steps. These can be abstracted away by having a shell script to build dependencies and setup environment variables
-* **Utilize SDK and version management tools:**Some projects might require an older version of a language or framework. Using tools like[SDKMan](https://sdkman.io/)and[NVM](https://github.com/nvm-sh/nvm)make it easy to manage these dependency requirement differences.
+* **Utilize SDK and version management tools:**Some projects might require an older version of a language or framework. Using tools like [SDKMan](https://sdkman.io/) and [NVM](https://github.com/nvm-sh/nvm) make it easy to manage these dependency requirement differences.
 
 - - -
 
