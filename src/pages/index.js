@@ -95,7 +95,7 @@ const HomePage = styled.div`
     font-family: Oxygen;
     font-style: normal;
     text-align: center;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 500;
     line-height: 1.5;
   }
@@ -120,6 +120,9 @@ const HomePage = styled.div`
   }
 
   @media only screen and (min-width: 600px) {
+    .title {
+      font-size: 32px;
+    }
     .logos {
       max-width: 800px;
       margin: auto;
