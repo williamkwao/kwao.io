@@ -105,6 +105,10 @@ const BlogPost = ({ data }) => {
               name="description"
               content={`${post.frontmatter.description}`}
             />
+            <meta
+              name="og:image"
+              content={post.frontmatter.featuredimage.childImageSharp.fluid.src}
+            />
           </Helmet>
         }
         tags={post.frontmatter.tags}
