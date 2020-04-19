@@ -82,6 +82,7 @@ const HomePage = styled.div`
   .landing {
     min-height: calc(100vh - 75px);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-items: center;
 

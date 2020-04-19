@@ -10,13 +10,12 @@ const Header = ({ siteTitle }) => (
         <Link to="/">{siteTitle}</Link>
       </h2>
     </div>
-    <div>
-      <ul>
-        <li>
-          <Link to="/blog">BLOG</Link>
-        </li>
-      </ul>
-    </div>
+
+    <ul>
+      <li>
+        <Link to="/blog">BLOG</Link>
+      </li>
+    </ul>
   </StyledHeader>
 )
 
@@ -29,22 +28,20 @@ Header.defaultProps = {
 }
 
 const StyledHeader = styled.header`
-  font-family: 'Oxygen';
+  font-family: "Oxygen";
   color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 18px;
-  .title{
+  .title {
     margin: 0px;
+    font-family: "Oxygen";
   }
   a {
-    :visited {
-      color: inherit;
-    }
     text-decoration: none;
   }
-  ul{
+  ul {
     margin: 0px;
   }
   li {
