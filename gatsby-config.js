@@ -63,7 +63,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Oxygen`],
+        fonts: [`Oxygen`, `Muli`, `Source Serif Pro`],
         display: "swap",
       },
     },
