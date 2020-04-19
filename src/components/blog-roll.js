@@ -19,10 +19,7 @@ class BlogRoll extends React.Component {
               }`}
               key={post.id}
             >
-              <Link
-                className=""
-                to={post.fields.slug}
-              >
+              <Link className="" to={post.fields.slug}>
                 <div className="inner">
                   <header>
                     <p>{post.frontmatter.date}</p>
@@ -50,13 +47,13 @@ class BlogRoll extends React.Component {
 }
 
 const ArticleCard = styled.article`
-  /* padding: 16px; */
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1);
   border-image: initial;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px;
   border-radius: 5px;
+  margin-bottom: 24px;
   a {
     :visited {
       color: inherit;
@@ -64,15 +61,15 @@ const ArticleCard = styled.article`
     text-decoration: none;
     color: inherit;
   }
-  .inner{
-      padding: 16px;
+  .inner {
+    padding: 16px;
   }
-  .title{
-      line-height: 36px;
-      font-size: 28px;
-      font-style: normal;
-      margin-bottom: 6px;
-  } 
+  .title {
+    line-height: 36px;
+    font-size: 28px;
+    font-style: normal;
+    margin-bottom: 6px;
+  }
   .thumbnail {
     object-fit: cover;
     .img {

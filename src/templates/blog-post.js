@@ -1,32 +1,45 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import {Helmet} from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/layout'
-import Content, { HTMLContent } from '../components/content'
+import React from "react"
+import PropTypes from "prop-types"
+import { kebabCase } from "lodash"
+import { Helmet } from "react-helmet"
+import { graphql, Link } from "gatsby"
+import Layout from "../components/layout"
+import Content, { HTMLContent } from "../components/content"
+import PreviewCompatibleImage from "../components/preview-compatible-image"
+import styled from "styled-components"
 
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
+export const BlogPostTemplate = props => {
+  const {
+    content,
+    contentComponent,
+    description,
+    tags,
+    title,
+    helmet,
+    featuredimage,
+  } = props
   const PostContent = contentComponent || Content
-  const FilledHelmet  = helmet 
+  const FilledHelmet = helmet
   return (
-    <section className="section">
-      {FilledHelmet || ''}
+    <BlogPostSection className="section">
+      {FilledHelmet || ""}
       <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
+        <div className="">
+          <div className="">
+            <div className="header-text">
+              <h1 className="title">{title}</h1>
+              <p>{description}</p>
+            </div>
+
+            {featuredimage ? (
+              <PreviewCompatibleImage
+                imageInfo={{
+                  image: featuredimage,
+                  alt: `featured image for post ${title}`,
+                }}
+              />
+            ) : null}
+            <PostContent content={content} className="html-content" />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -42,7 +55,7 @@ export const BlogPostTemplate = ({
           </div>
         </div>
       </div>
-    </section>
+    </BlogPostSection>
   )
 }
 
@@ -52,17 +65,27 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
+  featuredImage: PropTypes.object,
 }
+
+const BlogPostSection = styled.section`
+  .header-text,
+  .html-content {
+    max-width: 680px;
+    margin: auto;
+    margin-top: 42px;
+  }
+`
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
-
   return (
     <Layout>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        featuredimage={post.frontmatter.featuredimage}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -97,6 +120,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 630, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
