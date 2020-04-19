@@ -35,10 +35,11 @@ const ContentDiv = styled.div`
     font-family: "Muli" !important;
   }
   h1 {
-    font-size: 36px;
-    line-height: 38px;
-    margin-top: 1.25em;
+    font-size: 30px;
+    line-height: 36px;
+     margin-top: 1.25em;
   }
+  li,
   p {
     line-height: 32px;
     font-family: "Muli" !important;
@@ -67,12 +68,5 @@ const ContentDiv = styled.div`
       align-items: center;
       justify-content: center;
     }
-  }
-
-  @media only screen and (min-width: 600px) {
-     p{
-       font-size: 21px;
-       line-height: 33px;
-     }
   }
 `
