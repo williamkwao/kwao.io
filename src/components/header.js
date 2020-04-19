@@ -29,9 +29,11 @@ Header.defaultProps = {
 }
 
 const StyledHeader = styled.header`
+  font-family: 'Oxygen';
   color: #000;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 8px 18px;
   .title{
     margin: 0px;

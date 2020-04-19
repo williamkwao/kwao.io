@@ -28,7 +28,7 @@ export const BlogPostTemplate = props => {
           <div className="">
             <div className="header-text">
               <h1 className="title">{title}</h1>
-              <p>{description}</p>
+              <p className="sub-title">{description}</p>
             </div>
 
             {featuredimage ? (
@@ -40,7 +40,7 @@ export const BlogPostTemplate = props => {
               />
             ) : null}
             <PostContent content={content} className="html-content" />
-            {tags && tags.length ? (
+            {/*tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
                 <ul className="taglist">
@@ -51,7 +51,7 @@ export const BlogPostTemplate = props => {
                   ))}
                 </ul>
               </div>
-            ) : null}
+                  ) : null*/}
           </div>
         </div>
       </div>
@@ -69,11 +69,23 @@ BlogPostTemplate.propTypes = {
 }
 
 const BlogPostSection = styled.section`
+  padding-top: 48px;
   .header-text,
   .html-content {
     max-width: 680px;
     margin: auto;
     margin-top: 42px;
+  }
+  .title {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .sub-title {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 18px;
+    line-height: 24px;
   }
 `
 

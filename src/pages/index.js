@@ -74,6 +74,7 @@ const links = {
 const HomePage = styled.div`
   a {
     text-decoration: none;
+    color: inherit;
     :visited {
       color: inherit;
     }
