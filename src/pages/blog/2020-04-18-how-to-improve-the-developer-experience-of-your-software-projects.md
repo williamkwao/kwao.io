@@ -26,7 +26,7 @@ One of the answers is to improve the developer experience. Think about: Apart fr
 
 # Backstory
 
-I work on a small scrum team that owns about 6+ microservices.*One thing I have noticed is that there are some services that nobody on the team wants to touch. Initially, I thought it was only because not everyone had much experience working in those code bases but I noticed even my co-workers with much experience did not want to touch these services. What was actually wrong with these projects? The answer is — bad developer experience!*Here are a few things that I think we can do as a team to make these services great again. (Well, if they were ever great).
+I work on a small scrum team that owns about 6+ micro services. One thing I have noticed is that there are some services that nobody on the team wants to touch. Initially, I thought it was only because not everyone had much experience working in those code bases but I noticed even my co-workers with much experience did not want to touch these services. What was actually wrong with these projects? The answer is — bad developer experience! Here are a few things that I think we can do as a team to make these services great again. (Well, if they were ever great).
 
 - - -
 
