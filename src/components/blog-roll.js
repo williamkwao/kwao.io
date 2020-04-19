@@ -12,41 +12,49 @@ class BlogRoll extends React.Component {
     return (
       <div>
         {posts &&
-          posts.map(({ node: post }) => (
-            <ArticleCard
-              className={`${
-                post.frontmatter.featuredpost ? "is-featured" : ""
-              }`}
-              key={post.id}
-            >
-              <Link className="" to={post.fields.slug}>
-                <div className="inner">
-                  <header>
-                    <p>{post.frontmatter.date}</p>
-                    {post.frontmatter.featuredimage ? (
-                      <div className="thumbnail">
-                        <PreviewCompatibleImage
-                          imageInfo={{
-                            image: post.frontmatter.featuredimage,
-                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                          }}
-                        />
+          posts.map(({ node: post }) => {
+            return (
+              <ArticleCard
+                className={`${
+                  post.frontmatter.featuredpost ? "is-featured" : ""
+                }`}
+                key={post.id}
+              >
+                <Link className="" to={post.fields.slug}>
+                  <div className="inner">
+                    <header>
+                      <div className="header-text">
+                        <p>
+                          {post.frontmatter.date} ·{" "}
+                          {post.fields.readingTime.text}
+                        </p>
                       </div>
-                    ) : null}
+                      {post.frontmatter.featuredimage ? (
+                        <div className="thumbnail">
+                          <PreviewCompatibleImage
+                            imageInfo={{
+                              image: post.frontmatter.featuredimage,
+                              alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                            }}
+                          />
+                        </div>
+                      ) : null}
 
-                    <h2 className="title">{post.frontmatter.title}</h2>
-                  </header>
-                  <p>{post.frontmatter.description}</p>
-                </div>
-              </Link>
-            </ArticleCard>
-          ))}
+                      <h2 className="title">{post.frontmatter.title}</h2>
+                    </header>
+                    <p>{post.frontmatter.description}</p>
+                  </div>
+                </Link>
+              </ArticleCard>
+            )
+          })}
       </div>
     )
   }
 }
 
 const ArticleCard = styled.article`
+  font-family: "Muli" !important;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1);
@@ -77,6 +85,18 @@ const ArticleCard = styled.article`
     }
     margin-bottom: 16px;
   }
+
+  p {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .header-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    p {
+      margin-bottom: 16px;
+    }
+  }
 `
 BlogRoll.propTypes = {
   data: PropTypes.shape({
@@ -100,6 +120,9 @@ export default () => (
               id
               fields {
                 slug
+                readingTime {
+                  text
+                }
               }
               frontmatter {
                 title

@@ -17,6 +17,8 @@ export const BlogPostTemplate = props => {
     title,
     helmet,
     featuredimage,
+    readingTime,
+    date,
   } = props
   const PostContent = contentComponent || Content
   const FilledHelmet = helmet
@@ -29,6 +31,9 @@ export const BlogPostTemplate = props => {
             <div className="header-text">
               <h1 className="title">{title}</h1>
               <p className="sub-title">{description}</p>
+              <p className="time">
+                {date} · {readingTime}
+              </p>
             </div>
 
             {featuredimage ? (
@@ -86,6 +91,11 @@ const BlogPostSection = styled.section`
     color: rgba(0, 0, 0, 0.54);
     font-size: 18px;
     line-height: 24px;
+    margin-bottom: 8px;
+  }
+
+  .time {
+    font-size: 16px;
   }
 `
 
@@ -98,6 +108,8 @@ const BlogPost = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         featuredimage={post.frontmatter.featuredimage}
+        readingTime={post.fields.readingTime.text}
+        date={post.frontmatter.date}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -107,7 +119,9 @@ const BlogPost = ({ data }) => {
             />
             <meta
               name="og:image"
-              content={post.frontmatter.featuredimage.childImageSharp.fluid.src}
+              content={
+                post.frontmatter.featuredimage?.childImageSharp?.fluid?.src
+              }
             />
           </Helmet>
         }
@@ -131,6 +145,11 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        readingTime {
+          text
+        }
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
