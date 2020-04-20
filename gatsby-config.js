@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `kwao.io`,
-    description: `I’m a Software Engineer & Minimalist who is enthusiastic about simple architecture and minimizing complexity. Check out my blog!`,
+    description: `I’m a software engineer, minimalist and product/side-project junkie who searches for simplicity in everything.`,
     author: `@therealkwao`,
   },
   plugins: [
@@ -57,7 +57,7 @@ module.exports = {
               destinationDir: "static",
             },
           },
-          `gatsby-remark-reading-time`
+          `gatsby-remark-reading-time`,
         ],
       },
     },
