@@ -6,14 +6,12 @@ import styled from "styled-components"
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <div>
-      <h2 className="title">
-        <Link to="/">{siteTitle}</Link>
-      </h2>
+      <Link to="/">{siteTitle}</Link>
     </div>
 
     <ul>
       <li>
-        <Link to="/blog">BLOG</Link>
+        <Link to="/blog">blog</Link>
       </li>
     </ul>
   </StyledHeader>
@@ -34,6 +32,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 8px 18px;
+  font-size: 19px;
   .title {
     margin: 0px;
     font-family: "Oxygen";

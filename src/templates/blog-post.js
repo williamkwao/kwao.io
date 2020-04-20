@@ -74,10 +74,10 @@ BlogPostTemplate.propTypes = {
 }
 
 const BlogPostSection = styled.section`
-  padding-top: 48px;
+  padding-top: 16px;
   .header-text,
   .html-content {
-    max-width: 680px;
+    max-width: 630px;
     margin: auto;
     margin-top: 42px;
   }
@@ -93,7 +93,10 @@ const BlogPostSection = styled.section`
     line-height: 24px;
     margin-bottom: 8px;
   }
-
+   .img{
+     max-width: 680px !important;
+     margin: auto;
+   } 
   .time {
     font-size: 16px;
   }
@@ -157,7 +160,7 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 630, quality: 100) {
+            fluid(maxWidth: 680, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

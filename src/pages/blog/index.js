@@ -13,6 +13,10 @@ export default class BlogIndexPage extends React.Component {
         <BlogPage>
           <div className="header">
             <h3>Latest Posts</h3>
+            <p>
+              I love to write about tech & everything around it. These opinions belong to my parents
+              and not the views of my current employer.
+            </p>
           </div>
           <section className="section">
             <div className="content">
@@ -26,13 +30,16 @@ export default class BlogIndexPage extends React.Component {
 }
 
 const BlogPage = styled.div`
-padding-top: 46px;
+  font-family: "Muli";
+  padding-top: 46px;
   .header {
-    text-align: center;
+    max-width: 650px;
+    margin: auto;
+    text-align: left;
     padding: 15px 0px;
 
-    h3{
-      margin-bottom: 0px;
+    h3 {
+      /* margin-bottom: 5px; */
       font-size: 18px;
     }
   }
