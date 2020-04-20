@@ -15,7 +15,7 @@ export default class BlogIndexPage extends React.Component {
             <h3>Latest Posts</h3>
             <p>
               I love to write about tech & everything around it. These opinions belong to my parents
-              and not the views of my current employer.
+              and are not my views or the views of my current employer.
             </p>
           </div>
           <section className="section">
