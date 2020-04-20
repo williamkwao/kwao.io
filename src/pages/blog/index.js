@@ -4,18 +4,22 @@ import Layout from "../../components/layout"
 import BlogRoll from "../../components/blog-roll"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
+import SEO from "../../components/seo"
 
+const description =
+  " I love to write about tech & everything around it. These opinions belong to my parent and are not my views or the views of my current employer."
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Helmet title="Blog posts" />
+        <SEO title="Blogs by William Kwao" description={description} />
         <BlogPage>
           <div className="header">
             <h3>Latest Posts</h3>
             <p>
-              I love to write about tech & everything around it. These opinions belong to my parents
-              and are not my views or the views of my current employer.
+              I love to write about tech & everything around it. These opinions
+              belong to my parents and are not my views or the views of my
+              current employer.
             </p>
           </div>
           <section className="section">
