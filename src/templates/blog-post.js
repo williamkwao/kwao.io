@@ -121,7 +121,7 @@ const BlogPost = ({ data }) => {
               content={`${post.frontmatter.description}`}
             />
             <meta
-              name="og:image"
+              property="og:image"
               content={
                 post.frontmatter.featuredimage?.childImageSharp?.fluid?.src
               }
