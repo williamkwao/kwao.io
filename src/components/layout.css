@@ -625,13 +625,10 @@ pre tt:after {
   }
 }
 
-.deckgo-highlight-code-container {
-  width: fit-content !important;
+
+
+deckgo-highlight-code *{
+  white-space: pre;
+  
 }
-
-.deckgo-highlight-code-container{
-  --deckgo-highlight-code-container-width:  fit-content !important;
-
-}
-
 

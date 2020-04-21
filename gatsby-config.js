@@ -59,7 +59,7 @@ module.exports = {
           },
           `gatsby-remark-reading-time`,
           {
-            resolve: `gatsby-remark-highlight-code`
+            resolve: `gatsby-remark-highlight-code`,
           },
         ],
       },
