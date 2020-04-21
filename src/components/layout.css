@@ -624,3 +624,14 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.deckgo-highlight-code-container {
+  width: fit-content !important;
+}
+
+.deckgo-highlight-code-container{
+  --deckgo-highlight-code-container-width:  fit-content !important;
+
+}
+
+
