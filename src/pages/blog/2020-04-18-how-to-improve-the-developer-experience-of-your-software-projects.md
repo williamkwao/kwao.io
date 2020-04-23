@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: How to Improve the Developer Experience of Your Software Projects
-date: 2020-04-18T03:18:46.016Z
+date: 2020-02-27T04:18:46.016Z
 description: Practices that bring you joy as you grow and scale your software projects
 featuredpost: false
 featuredimage: /img/1_aeqap7kx5zqwzp7abkmc0a.jpeg
