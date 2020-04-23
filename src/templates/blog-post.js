@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import { kebabCase } from "lodash"
 import { Helmet } from "react-helmet"
@@ -22,10 +22,23 @@ export const BlogPostTemplate = props => {
   } = props
   const PostContent = contentComponent || Content
   const FilledHelmet = helmet
+  const domRef = useRef()
+  useEffect(() => {
+    let deckGoCodeBlock = document
+      .querySelectorAll("deckgo-highlight-code")
+      .forEach(data => {
+        data.setAttribute("line-numbers", "true")
+        let code = data.shadowRoot.querySelector("code")
+        if (code) {
+          code.style.whiteSpace = "pre"
+        }
+        console.log("code", code)
+      })
+  }, domRef)
   return (
     <BlogPostSection className="section">
       {FilledHelmet || ""}
-      <div className="container content">
+      <div className="container content" ref={domRef}>
         <div className="">
           <div className="">
             <div className="header-text">
@@ -93,10 +106,10 @@ const BlogPostSection = styled.section`
     line-height: 24px;
     margin-bottom: 8px;
   }
-   .img{
-     max-width: 680px !important;
-     margin: auto;
-   } 
+  .img {
+    max-width: 680px !important;
+    margin: auto;
+  }
   .time {
     font-size: 16px;
   }

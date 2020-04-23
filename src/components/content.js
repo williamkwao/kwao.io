@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+deckDeckGoHighlightElement()
 
 export const HTMLContent = ({ content, className }) => (
   <ContentDiv
@@ -37,7 +39,7 @@ const ContentDiv = styled.div`
   h1 {
     font-size: 30px;
     line-height: 36px;
-     margin-top: 1.25em;
+    margin-top: 1.25em;
   }
   li,
   p {
