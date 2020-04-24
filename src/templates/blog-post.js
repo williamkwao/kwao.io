@@ -22,23 +22,11 @@ export const BlogPostTemplate = props => {
   } = props
   const PostContent = contentComponent || Content
   const FilledHelmet = helmet
-  const domRef = useRef()
-  useEffect(() => {
-    let deckGoCodeBlock = document
-      .querySelectorAll("deckgo-highlight-code")
-      .forEach(data => {
-        data.setAttribute("line-numbers", "true")
-        let code = data.shadowRoot.querySelector("code")
-        if (code) {
-          code.style.whiteSpace = "pre"
-        }
-        console.log("code", code)
-      })
-  }, domRef)
+
   return (
     <BlogPostSection className="section">
       {FilledHelmet || ""}
-      <div className="container content" ref={domRef}>
+      <div className="container content">
         <div className="">
           <div className="">
             <div className="header-text">
@@ -94,6 +82,10 @@ const BlogPostSection = styled.section`
     margin: auto;
     margin-top: 42px;
   }
+
+  .header-text {
+    margin-top: 14px;
+  }
   .title {
     font-size: 30px;
     line-height: 40px;
@@ -104,6 +96,7 @@ const BlogPostSection = styled.section`
     color: rgba(0, 0, 0, 0.54);
     font-size: 18px;
     line-height: 24px;
+    margin-top: 8px;
     margin-bottom: 8px;
   }
   .img {
@@ -112,6 +105,31 @@ const BlogPostSection = styled.section`
   }
   .time {
     font-size: 16px;
+  }
+
+  /* Mobile only */
+  @media only screen and (max-width: 768px) {
+    deckgo-highlight-code {
+      width: calc(100vw - 10px);
+      position: relative;
+      right: 50%;
+      left: 51.5%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+
+      max-height: 350px;
+    }
+
+    .html-content img,
+    .gatsby-image-wrapper {
+      width: calc(100vw);
+      position: relative;
+      right: 50%;
+      left: 50%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+      max-width: unset;
+    }
   }
 `
 

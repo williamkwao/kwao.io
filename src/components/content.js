@@ -71,4 +71,27 @@ const ContentDiv = styled.div`
       justify-content: center;
     }
   }
+  /* Mobile only */
+  @media only screen and (max-width: 768px) {
+    deckgo-highlight-code {
+      width: calc(100vw - 10px);
+      position: relative;
+      right: 50%;
+      left: 51.5%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+
+      max-height: 350px;
+    }
+
+    img {
+      width: calc(100vw);
+      position: relative;
+      right: 50%;
+      left: 50%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+      max-width: unset;
+    }
+  }
 `
