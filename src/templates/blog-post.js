@@ -116,7 +116,6 @@ const BlogPostSection = styled.section`
       left: 51.5%;
       margin-right: -50vw;
       margin-left: -50vw;
-
       max-height: 350px;
     }
 
