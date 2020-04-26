@@ -32,6 +32,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-twitter`,
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -63,6 +64,17 @@ module.exports = {
             options: {
               lineNumbers: true
             }
+          },
+          {
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              customTransformers: [
+                // Your custom transformers
+              ],
+              services: {
+                // The service-specific options by the name of the service
+              },
+            },
           },
         ],
       },
