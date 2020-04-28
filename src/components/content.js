@@ -36,10 +36,27 @@ const ContentDiv = styled.div`
   li {
     font-family: "Muli" !important;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    line-height: 1.5;
+    font-family: Oxygen !important;
+    strong {
+      font-family: Oxygen !important;
+      line-height: 1.5;
+
+    }
+  }
   h1 {
     font-size: 30px;
-    line-height: 36px;
+    line-height: 38px;
     margin-top: 1.25em;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom:8px;
   }
   li,
   p {

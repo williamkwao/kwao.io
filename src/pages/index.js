@@ -22,7 +22,7 @@ const IndexPage = () => (
             <p className="text">
               Software Enginner, minimalist & side-project junkie. Currently
               working <a href="https://www.walmartlabs.com/">@walmartlabs</a> &
-              hustling on <a href="fedup.co">fedup.co</a>.
+              hustling on <a href="https://fedup.co">fedup.co</a>.
             </p>
           </div>
           <div className="logos">
