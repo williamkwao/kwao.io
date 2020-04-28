@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `kwao.io`,
-    description: `I’m a software engineer, minimalist and product/side-project junkie who searches for simplicity in everything.`,
-    author: `@therealkwao`,
+    description: `Hi I'm William Kwao. A software Enginner, minimalist & side-project junkie. Currently working @walmartlabs & hustling on fedup.co.`,
+    author: `William Kwao`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -62,8 +62,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-highlight-code`,
             options: {
-              lineNumbers: true
-            }
+              lineNumbers: true,
+            },
           },
           {
             resolve: `gatsby-remark-embedder`,
