@@ -55,7 +55,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -71,10 +71,14 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
-          content: ogImage
-        }
+          content: ogImage,
+        },
+        {
+          name: `twitter:image`,
+          content: ogImage,
+        },
       ].concat(meta)}
-    />
+    ></Helmet>
   )
 }
 
