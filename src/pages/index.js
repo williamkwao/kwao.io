@@ -21,8 +21,23 @@ const IndexPage = () => (
             <h2 className="title">William Kwao</h2>
             <p className="text">
               Software Enginner, minimalist & side-project junkie. Currently
-              working <a href="https://www.walmartlabs.com/">@walmartlabs</a> &
-              hustling on <a href="https://fedup.co">fedup.co</a>.
+              working{" "}
+              <a
+                href="https://www.walmartlabs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @walmartlabs
+              </a>{" "}
+              & hustling on{" "}
+              <a
+                href="https://fedup.co"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                fedup.co
+              </a>
+              .
             </p>
           </div>
           <div className="logos">
@@ -75,6 +90,14 @@ const links = {
 }
 const HomePage = styled.div`
   font-family: Oxygen;
+  .img-div {
+    width: 100px;
+    text-align: center;
+    margin: auto;
+    img {
+      margin-bottom: 0px;
+    }
+  }
   a {
     text-decoration: none;
     color: inherit;
@@ -107,7 +130,7 @@ const HomePage = styled.div`
     font-size: 18px;
     text-align: center;
     line-height: 31px;
-    a{
+    a {
       text-decoration: underline;
     }
   }
@@ -128,7 +151,10 @@ const HomePage = styled.div`
       font-size: 35px;
     }
   }
-
+  .call-to-action {
+    text-align: center;
+    margin-top: 20px;
+  }
   @media only screen and (min-width: 600px) {
     .title {
       font-size: 32px;

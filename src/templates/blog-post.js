@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import Content, { HTMLContent } from "../components/content"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
 import styled from "styled-components"
+import Signup from "../components/signup/signup"
 
 export const BlogPostTemplate = props => {
   const {
@@ -59,8 +60,11 @@ export const BlogPostTemplate = props => {
               </div>
                   ) : null*/}
           </div>
+         
         </div>
+        <Signup/>
       </div>
+     
     </BlogPostSection>
   )
 }
@@ -76,6 +80,7 @@ BlogPostTemplate.propTypes = {
 
 const BlogPostSection = styled.section`
   padding-top: 16px;
+  padding-bottom: 40px;
   .header-text,
   .html-content {
     max-width: 630px;
