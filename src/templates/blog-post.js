@@ -60,11 +60,9 @@ export const BlogPostTemplate = props => {
               </div>
                   ) : null*/}
           </div>
-         
         </div>
-        <Signup/>
+        <Signup />
       </div>
-     
     </BlogPostSection>
   )
 }
@@ -161,6 +159,23 @@ const BlogPost = ({ data }) => {
                 post.frontmatter.featuredimage?.childImageSharp?.fluid?.src
               }
             />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:domain" value="kwao.io" />
+            <meta name="twitter:title" value={post.frontmatter.title} />
+            <meta
+              name="twitter:description"
+              value={post.frontmatter.description}
+            />
+            <meta
+              name="twitter:image"
+              content={
+                post.frontmatter.featuredimage?.childImageSharp?.fluid?.src
+              }
+            />
+            <meta name="twitter:label1" value="Published" />
+            <meta name="twitter:data1" value={post.frontmatter.date} />
+            <meta name="twitter:label2" value="Reading Time" />
+            <meta name="twitter:data2" value={post.fields.readingTime.text} />
           </Helmet>
         }
         tags={post.frontmatter.tags}

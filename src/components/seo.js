@@ -28,6 +28,7 @@ function SEO({ description, lang, meta, title, image }) {
 
   const metaDescription = description || site.siteMetadata.description
   const ogImage = image || previewImage
+  console.log('image', ogImage)
 
   return (
     <Helmet
