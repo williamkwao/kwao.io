@@ -174,7 +174,7 @@ const BlogPost = ({ data }) => {
             />
             <meta name="twitter:label1" value="Published" />
             <meta name="twitter:data1" value={post.frontmatter.date} />
-            <meta name="twitter:label2" value="Reading Time" />
+            <meta name="twitter:label2" value="Read Time" />
             <meta name="twitter:data2" value={post.fields.readingTime.text} />
           </Helmet>
         }
