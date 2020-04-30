@@ -3,6 +3,7 @@ module.exports = {
     title: `kwao.io`,
     description: `Hi I'm William Kwao. A software Enginner, minimalist & side-project junkie. Currently working @walmartlabs & hustling on fedup.co.`,
     author: `William Kwao`,
+    siteUrl: 'https://kwao.io'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
