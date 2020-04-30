@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet"
 import SEO from "../../components/seo"
 
 const description =
-  " I love to write about tech & everything around it. These opinions belong to my parent and are not my views or the views of my current employer."
+  "I love to write about tech & everything around it. You can blame my parents for my views and opinions, not my current Employer."
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
@@ -16,11 +16,7 @@ export default class BlogIndexPage extends React.Component {
         <BlogPage>
           <div className="header">
             <h3>Latest Posts</h3>
-            <p>
-              I love to write about tech & everything around it. These opinions
-              belong to my parents and are not my views or the views of my
-              current employer.
-            </p>
+            <p>{description}</p>
           </div>
           <section className="section">
             <div className="content">
