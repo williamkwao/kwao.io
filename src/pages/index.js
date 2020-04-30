@@ -14,7 +14,7 @@ import Layout from "../components/layout"
 const IndexPage = () => (
   <Layout>
     <HomePage>
-      <SEO title="Kwao" />
+      <SEO title="William Kwao" />
       <div className="landing">
         <div className="content">
           <div>
