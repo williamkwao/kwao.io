@@ -109,6 +109,9 @@ const BlogPostSection = styled.section`
   .time {
     font-size: 16px;
   }
+  .gatsby-image-wrapper {
+     border-radius: 0px;
+    }
 
   /* Mobile only */
   @media only screen and (max-width: 768px) {

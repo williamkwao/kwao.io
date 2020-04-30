@@ -82,6 +82,7 @@ const ArticleCard = styled.article`
     object-fit: cover;
     .img {
       max-height: 180px !important;
+      border-radius: 5px;
     }
     margin-bottom: 16px;
   }
