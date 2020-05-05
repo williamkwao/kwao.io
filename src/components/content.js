@@ -89,5 +89,8 @@ const ContentDiv = styled.div`
     }
   }
   /* Enable horizontal scroll on code hi-light  element */
-  --deckgo-highlight-code-white-space: pre;
+  deckgo-highlight-code{
+    --deckgo-highlight-code-white-space: pre;
+  }
+  
 `
