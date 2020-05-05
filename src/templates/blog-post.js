@@ -8,6 +8,7 @@ import Content, { HTMLContent } from "../components/content"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
 import styled from "styled-components"
 import Signup from "../components/signup/signup"
+import SEO from "../components/seo"
 
 export const BlogPostTemplate = props => {
   const {
@@ -110,8 +111,8 @@ const BlogPostSection = styled.section`
     font-size: 16px;
   }
   .gatsby-image-wrapper {
-     border-radius: 0px;
-    }
+    border-radius: 0px;
+  }
 
   /* Mobile only */
   @media only screen and (max-width: 768px) {
@@ -150,36 +151,29 @@ const BlogPost = ({ data }) => {
         readingTime={post.fields.readingTime.text}
         date={post.frontmatter.date}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-            <meta
-              property="og:image"
-              content={
-                post.frontmatter.featuredimage?.childImageSharp?.fluid?.src
-              }
-            />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:domain" value="kwao.io" />
-            <meta name="twitter:title" value={post.frontmatter.title} />
-            <meta
-              name="twitter:description"
-              value={post.frontmatter.description}
-            />
-            <meta
-              name="twitter:image"
-              content={
-                post.frontmatter.featuredimage?.childImageSharp?.fluid?.src
-              }
-            />
-            <meta name="twitter:label1" value="Published" />
-            <meta name="twitter:data1" value={post.frontmatter.date} />
-            <meta name="twitter:label2" value="Read time" />
-            <meta name="twitter:data2" value={post.fields.readingTime.text} />
-          </Helmet>
+          <SEO
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            image={post.frontmatter.featuredimage?.childImageSharp?.fluid?.src}
+            meta={[
+              {
+                name: "twitter:label1",
+                value: "Published",
+              },
+              {
+                name: "data1",
+                value: post.frontmatter.date,
+              },
+              {
+                name: "twitter:label2",
+                value: "Read time",
+              },
+              {
+                name: "data2",
+                value: post.fields.readingTime.text,
+              },
+            ]}
+          />
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
