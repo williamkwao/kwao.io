@@ -91,6 +91,7 @@ const ContentDiv = styled.div`
   /* Enable horizontal scroll on code hi-light  element */
   deckgo-highlight-code{
     --deckgo-highlight-code-white-space: pre;
+    word-wrap: normal;
   }
   
 `
