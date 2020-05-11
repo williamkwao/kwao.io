@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimes } from "@fortawesome/free-solid-svg-icons"
+
 import {
   faInstagram,
   faMedium,
@@ -10,52 +12,96 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
 import Layout from "../components/layout"
+import ReactModal from "react-modal"
+import Signup from "../components/signup/signup"
+import { Link } from "gatsby"
 
-const IndexPage = () => (
-  <Layout>
-    <HomePage>
-      <SEO title="William Kwao" />
-      <div className="landing">
-        <div className="content">
-          <div>
-            <h2 className="title">William Kwao</h2>
-            <p className="text">
-              Software Enginner, minimalist & side-project junkie. Currently
-              working{" "}
-              <a
-                href="https://www.walmartlabs.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+const IndexPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  return (
+    <Layout>
+      <HomePage>
+        <SEO title="William Kwao" />
+        <div className="landing">
+          <div className="content">
+            <div>
+              <h2 className="title">William Kwao</h2>
+              <p className="text">
+                Software Enginner, minimalist & side-project junkie. Currently
+                working @ Facebook & hustling on{" "}
+                <a
+                  href="https://fedup.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  fedup.co
+                </a>
+                .
+              </p>
+            </div>
+            <div className="logos">
+              {social.map((data, idx) => {
+                return (
+                  <div className="row" key={idx}>
+                    <a
+                      href={data.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon icon={data.logo} />
+                    </a>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="actions">
+              <ActionButton
+                onClick={() => {
+                  setIsModalOpen(true)
+                }}
               >
-                @walmartlabs
-              </a>{" "}
-              & hustling on{" "}
-              <a
-                href="https://fedup.co"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                fedup.co
-              </a>
-              .
-            </p>
-          </div>
-          <div className="logos">
-            {social.map((data, idx) => {
-              return (
-                <div className="row" key={idx}>
-                  <a href={data.link} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={data.logo} />
-                  </a>
-                </div>
-              )
-            })}
+                SUBSCRIBE
+              </ActionButton>
+              <Link to="/blog">
+                <ActionButton>BLOG</ActionButton>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </HomePage>
-  </Layout>
-)
+      </HomePage>
+      <ReactModal
+        isOpen={isModalOpen}
+        closeTimeoutMS={500}
+        onRequestClose={() => setIsModalOpen(false)}
+        style={{
+          overlay: {
+            display: "flex",
+            justifyItems: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          content: {
+            position: "relative",
+            border: "1px solid #ccc",
+            right: 0,
+            left: 0,
+            bottom: 0,
+            top: 0,
+          },
+        }}
+      >
+        <div className="signup-modal">
+          <div style={{ textAlign: "right" }}>
+            <ClearButton onClick={() => setIsModalOpen(false)}>
+              <FontAwesomeIcon icon={faTimes} />
+            </ClearButton>
+          </div>
+          <Signup />
+        </div>
+      </ReactModal>
+    </Layout>
+  )
+}
 
 const social = [
   {
@@ -155,6 +201,15 @@ const HomePage = styled.div`
     text-align: center;
     margin-top: 20px;
   }
+  .actions {
+    text-align: center;
+    margin-top: 23px;
+    button {
+      margin: 12px;
+      margin-top: 0px;
+      width: 112px;
+    }
+  }
   @media only screen and (min-width: 600px) {
     .title {
       font-size: 32px;
@@ -174,5 +229,17 @@ const HomePage = styled.div`
       }
     }
   }
+`
+
+const ActionButton = styled.button`
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  background: transparent;
+  border-radius: 8px;
+  font-size: 16px;
+`
+
+const ClearButton = styled.button`
+  background: transparent;
+  border: none;
 `
 export default IndexPage

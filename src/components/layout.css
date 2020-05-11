@@ -619,16 +619,32 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
   }
 }
 
-
+@media only screen and (min-width: 600px) {
+  .signup-modal .formkit-form {
+    min-width: 500px;
+  }
+}
 
 deckgo-highlight-code *{
   white-space: pre;
-  
 }
 
