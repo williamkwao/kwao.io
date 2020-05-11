@@ -79,6 +79,7 @@ const IndexPage = () => {
             justifyItems: "center",
             alignItems: "center",
             justifyContent: "center",
+            backgroundColor: 'rgba(0,0,0,0.3)'
           },
           content: {
             position: "relative",
@@ -236,6 +237,8 @@ const ActionButton = styled.button`
   background: transparent;
   border-radius: 8px;
   font-size: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 `
 
 const ClearButton = styled.button`
