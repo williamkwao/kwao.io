@@ -205,9 +205,9 @@ const HomePage = styled.div`
     text-align: center;
     margin-top: 23px;
     button {
-      margin: 12px;
+      margin: 10px;
       margin-top: 0px;
-      width: 112px;
+      width: 120px;
     }
   }
   @media only screen and (min-width: 600px) {
