@@ -1,6 +1,7 @@
 import React from "react"
 
 import "./signup.css"
+import avatar from "../../images/avatar.svg"
 
 const Signup = () => {
   return (
@@ -46,8 +47,8 @@ const Signup = () => {
           </div>
           <div className="formkit-image">
             <img
-              src="https://083950260099-attachments.s3.us-east-2.amazonaws.com/107805/19c4e69f-19dc-4586-9b79-c165f1775e4a/newsletterLogo.svg"
-              style={{ maxWidth: "100%" }}
+              src={avatar}
+              style={{ maxWidth: '60px', marginBottom:0 }}
             />
           </div>
         </div>
@@ -93,9 +94,9 @@ const Signup = () => {
               data-element="submit"
               className="formkit-submit formkit-submit"
               style={{
-                backgroundColor: "rgb(252, 211, 225)",
+                backgroundColor: "rgb(131, 44, 44)",
                 borderRadius: "24px",
-                color: "rgb(110, 110, 110)",
+                color: "rgb(255, 255, 255)",
                 fontWeight: 700,
               }}
             >
