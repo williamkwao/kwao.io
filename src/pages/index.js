@@ -27,7 +27,7 @@ const IndexPage = () => {
             <div>
               <h2 className="title">William Kwao</h2>
               <p className="text">
-                Software Enginner, minimalist & side-project junkie. Currently
+                Software Engineer, minimalist & side-project junkie. Currently
                 working @ Facebook & hustling on{" "}
                 <a
                   href="https://fedup.co"
