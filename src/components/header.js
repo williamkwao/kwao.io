@@ -11,7 +11,12 @@ const Header = ({ siteTitle }) => (
 
     <ul>
       <li>
-        <Link to="/blog">blog</Link>
+        <a href="https://anchor.fm/saucecontrol" target="_blank" rel="noopener noreferrer">
+          Podcast
+        </a>
+      </li>
+      <li>
+        <Link to="/blog">Blog</Link>
       </li>
     </ul>
   </StyledHeader>
@@ -47,7 +52,7 @@ const StyledHeader = styled.header`
     text-decoration: none;
     display: inline-block;
     margin: 0px;
-    margin-left: 8px;
+    margin-left: 18px;
   }
 `
 

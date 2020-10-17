@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTimes } from "@fortawesome/free-solid-svg-icons"
+import { faTimes, faPodcast } from "@fortawesome/free-solid-svg-icons"
 
 import {
   faInstagram,
@@ -114,6 +114,10 @@ const social = [
     logo: faMedium,
   },
   {
+    link: "https://anchor.fm/saucecontrol",
+    logo: faPodcast,
+  },
+  {
     link: "https://www.linkedin.com/in/wkwao/",
     logo: faLinkedin,
   },
@@ -126,6 +130,7 @@ const social = [
     link: "https://twitter.com/therealkwao",
     logo: faTwitter,
   },
+  
 ]
 
 const links = {
