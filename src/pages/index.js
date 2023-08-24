@@ -28,15 +28,7 @@ const IndexPage = () => {
               <h2 className="title">William Kwao</h2>
               <p className="text">
                 Software Engineer, minimalist & side-project junkie. Currently
-                working @ Facebook & hustling on{" "}
-                <a
-                  href="https://fedup.co"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  fedup.co
-                </a>
-                .
+                working @ Apple & previosly @ Meta & Walmart.
               </p>
             </div>
             <div className="logos">
