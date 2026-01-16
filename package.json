@@ -49,6 +49,9 @@
   "engines": {
     "node": ">=18"
   },
+  "overrides": {
+    "sharp": "^0.32.6"
+  },
   "scripts": {
     "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
     "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",

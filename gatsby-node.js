@@ -4,6 +4,20 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// Polyfill File API for Node.js 18 compatibility
+// Required by undici (used by cheerio/gatsby-plugin-offline)
+if (typeof globalThis.File === 'undefined') {
+  const { Blob } = require('buffer')
+  globalThis.File = class File extends Blob {
+    constructor(fileBits, fileName, options = {}) {
+      super(fileBits, options)
+      this.name = fileName
+      this.lastModified = options.lastModified || Date.now()
+      this.webkitRelativePath = options.webkitRelativePath || ''
+    }
+  }
+}
+
 // You can delete this file if you're not using it
 const _ = require('lodash')
 const path = require('path')
