@@ -2,11 +2,9 @@
 templateKey: blog-post
 title: What Is Good Code in the AI Era?
 date: 2026-01-16T02:51:40.299Z
-description: A few days ago, Anthropic shipped a major feature built largely
-  with AI code generation. The reaction was mixed—celebration and concern. But
-  this isn't new. Every abstraction shift in software engineering sparked the
-  same anxiety. What changes isn't whether engineers matter, but what makes a
-  good engineer. Here's what that shift looks like now.
+description: Every abstraction shift in software engineering sparks anxiety.
+  With AI code generation, what changes isn't whether engineers matter, but what
+  makes a good engineer.
 featuredpost: true
 featuredimage: /img/g-gxibkxyaanczb.jpeg
 ---
