@@ -54,8 +54,7 @@ export default function HomePage() {
             <div>
               <h2 className="title">William Kwao</h2>
               <p className="text">
-                Software Engineer, minimalist & side-project junkie. Currently
-                working @ Apple, previously @ Meta & Walmart.
+                Software Engineer, minimalist & side-project junkie. Previously @ Apple, Meta & Walmart.
               </p>
             </div>
             <div className="logos">
