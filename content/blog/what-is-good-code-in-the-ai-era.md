@@ -38,7 +38,7 @@ AI code generation is not a break from that pattern. It\'s the next step in it.
 
 ⸻
 
-**Abstraction Has Always Changed What \"Good\" Means**
+#### Abstraction Has Always Changed What "Good" Means
 
 Writing assembly was once a mark of mastery. You controlled memory, registers, timing. You knew exactly what the machine would do because you told it, instruction by instruction.
 
@@ -54,7 +54,7 @@ AI code generation introduces a similar shift. When a machine can generate worki
 
 ⸻
 
-**What Changes in the AI Era**
+#### What Changes in the AI Era
 
 AI makes code abundant. Cheap. Replaceable.
 
@@ -62,25 +62,25 @@ Understanding, however, becomes scarcer.
 
 In this environment, good code starts to mean something different.
 
-**Good code represents intent clearly**
+##### Good code represents intent clearly
 
 Not just what the system does, but why it exists. Code that can be explained succinctly is more valuable than code that is merely correct. When you read it, you should understand not just the implementation, but the constraints it respects and the tradeoffs it makes.
 
 If an AI or another engineer can\'t safely modify it, the problem isn\'t the AI. It\'s the code.
 
-**Good code survives change**
+##### Good code survives change
 
 When code can be rewritten quickly, durability matters more than cleverness. Systems are judged not by how perfect they are today, but by how well they adapt tomorrow.
 
 This mirrors the compiler transition. Once we trusted compilers, we optimized for maintainability, not instruction counts.
 
-**Good code encodes judgment**
+##### Good code encodes judgment
 
 AI can generate implementations. It cannot decide what tradeoffs matter, what constraints are non-negotiable, what should not be built, or where failure is acceptable.
 
 Those decisions live in architecture, interfaces, invariants, and tests. That\'s where human judgment now concentrates.
 
-**Good code requires competent verification**
+##### Good code requires competent verification
 
 When AI generates implementations, engineers need enough literacy to evaluate correctness, spot security issues, and assess performance characteristics. This creates an interesting paradox: you need implementation knowledge to validate code you didn\'t write.
 
@@ -90,7 +90,7 @@ This skill builds through practice: reviewing AI-generated code with the same ri
 
 ⸻
 
-**Code as a Temporary Artifact**
+#### Code as a Temporary Artifact
 
 One uncomfortable implication of AI-assisted development is this:
 
@@ -114,7 +114,7 @@ This shift can feel like devaluation. If you spent years mastering implementatio
 
 ⸻
 
-**The Familiar Fear, Repeating Again**
+#### The Familiar Fear, Repeating Again
 
 Many of the critiques of AI-generated code sound familiar: \"You don\'t really understand what\'s happening underneath.\" \"This creates dependency.\" \"It makes developers worse.\"
 
@@ -128,7 +128,7 @@ The engineers who thrived weren\'t the ones who clung to the old definition of s
 
 ⸻
 
-**A New Working Definition**
+#### A New Working Definition
 
 In the AI era, good code is not defined by how it was written.
 
@@ -138,7 +138,7 @@ The source of the code matters less than the decisions embedded in it.
 
 ⸻
 
-**What This Means in Practice**
+#### What This Means in Practice
 
 So what does this mean practically?
 
@@ -150,7 +150,7 @@ And build judgment about when to use AI generation and when to write by hand. Th
 
 ⸻
 
-**We\'ve Been Here Before**
+#### We've Been Here Before
 
 We didn\'t stop being engineers when we stopped writing assembly.
 

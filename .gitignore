@@ -52,11 +52,21 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env
+.env*.local
 
-# gatsby files
+# Keep .env.example
+!.env.example
+
+# Next.js build output
+.next/
+out/
+
+# Gatsby files (legacy)
 .cache/
-public
+
+# Tina CMS
+tina/__generated__/
 
 # Mac files
 .DS_Store
@@ -67,3 +77,10 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
