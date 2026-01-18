@@ -10,14 +10,8 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  const postsResponse = await client.queries.postConnection();
-  const posts = postsResponse.data.postConnection.edges || [];
-
-  return posts.map((edge) => ({
-    slug: edge?.node?._sys.filename || '',
-  }));
-}
+// generateStaticParams removed temporarily - will be restored once Tina Cloud indexes the schema
+// This makes pages render dynamically at request time instead of build time
 
 export async function generateMetadata({
   params,
