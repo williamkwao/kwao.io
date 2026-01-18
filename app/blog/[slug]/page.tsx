@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import client from '@/tina/__generated__/client';
 import BlogPostClient from './client';
 
+// Force dynamic rendering until Tina Cloud indexes the schema
+export const dynamic = 'force-dynamic';
+
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
