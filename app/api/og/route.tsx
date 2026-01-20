@@ -4,16 +4,24 @@ import { NextRequest } from 'next/server';
 export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams, origin } = new URL(request.url);
 
   // Get parameters with defaults
   const title = searchParams.get('title') || 'William Kwao';
-  const description = searchParams.get('description') || '';
+  const rawDescription = searchParams.get('description') || '';
   const type = searchParams.get('type') || 'default'; // home, blog, post, default
 
+  // Truncate description if too long (max 120 characters)
+  const maxLength = 120;
+  const description = rawDescription.length > maxLength
+    ? rawDescription.slice(0, maxLength).trim() + '...'
+    : rawDescription;
+
   // Customize based on type
-  const isHome = type === 'home';
   const isPost = type === 'post';
+
+  // Avatar image URL
+  const avatarUrl = `${origin}/images/avatar.svg`;
 
   return new ImageResponse(
     (
@@ -22,9 +30,9 @@ export async function GET(request: NextRequest) {
           height: '100%',
           width: '100%',
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           backgroundColor: '#ffffff',
           padding: 60,
         }}
@@ -41,27 +49,26 @@ export async function GET(request: NextRequest) {
           }}
         />
 
-        {/* Main content */}
+        {/* Left side - Text content */}
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            textAlign: 'center',
-            maxWidth: 1000,
+            maxWidth: 700,
+            paddingRight: 40,
           }}
         >
           {/* Title */}
           <div
             style={{
-              fontSize: isPost ? 56 : 72,
+              fontSize: isPost ? 48 : 64,
               fontWeight: 600,
               color: '#000000',
               lineHeight: 1.2,
-              marginBottom: description ? 24 : 0,
+              marginBottom: description ? 20 : 0,
               display: 'flex',
-              textAlign: 'center',
             }}
           >
             {title}
@@ -71,11 +78,10 @@ export async function GET(request: NextRequest) {
           {description && (
             <div
               style={{
-                fontSize: 28,
+                fontSize: 24,
                 color: '#666666',
                 lineHeight: 1.4,
                 display: 'flex',
-                textAlign: 'center',
               }}
             >
               {description}
@@ -83,11 +89,30 @@ export async function GET(request: NextRequest) {
           )}
         </div>
 
+        {/* Right side - Avatar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src={avatarUrl}
+            alt=""
+            style={{
+              width: 280,
+              height: 280,
+            }}
+          />
+        </div>
+
         {/* Footer */}
         <div
           style={{
             position: 'absolute',
             bottom: 40,
+            left: 60,
             display: 'flex',
             alignItems: 'center',
             gap: 12,
@@ -103,10 +128,16 @@ export async function GET(request: NextRequest) {
             kwao.io
           </div>
           {isPost && (
-            <>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+              }}
+            >
               <div style={{ fontSize: 24, color: '#999999' }}>•</div>
               <div style={{ fontSize: 24, color: '#666666' }}>William Kwao</div>
-            </>
+            </div>
           )}
         </div>
       </div>

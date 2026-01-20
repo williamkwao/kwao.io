@@ -25,7 +25,7 @@ export async function generateMetadata({
 
     const post = result.data.post;
 
-    const ogImageUrl = `/api/og?title=${encodeURIComponent(post.title || '')}&type=post`;
+    const ogImageUrl = `/api/og?title=${encodeURIComponent(post.title || '')}&description=${encodeURIComponent(post.description || '')}&type=post`;
 
     return {
       title: post.title,
