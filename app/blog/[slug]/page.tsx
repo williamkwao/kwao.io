@@ -25,6 +25,8 @@ export async function generateMetadata({
 
     const post = result.data.post;
 
+    const ogImageUrl = `/api/og?title=${encodeURIComponent(post.title || '')}&type=post`;
+
     return {
       title: post.title,
       description: post.description,
@@ -32,13 +34,19 @@ export async function generateMetadata({
         title: post.title || '',
         description: post.description || '',
         type: 'article',
-        images: post.featuredimage ? [post.featuredimage] : [],
+        images: [
+          {
+            url: ogImageUrl,
+            width: 1200,
+            height: 630,
+          },
+        ],
       },
       twitter: {
         card: 'summary_large_image',
         title: post.title || '',
         description: post.description || '',
-        images: post.featuredimage ? [post.featuredimage] : [],
+        images: [ogImageUrl],
       },
     };
   } catch {
