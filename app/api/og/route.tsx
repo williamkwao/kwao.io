@@ -1,9 +1,37 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
-export const runtime = 'edge';
+// Use Node.js runtime for reliable font loading
+export const runtime = 'nodejs';
+
+// Cache fonts in memory after first load
+let interBold: ArrayBuffer | null = null;
+let interMedium: ArrayBuffer | null = null;
+
+async function loadFonts() {
+  if (!interBold || !interMedium) {
+    const fontsDir = join(process.cwd(), 'public', 'fonts');
+    const [boldBuffer, mediumBuffer] = await Promise.all([
+      readFile(join(fontsDir, 'Inter-Bold.ttf')),
+      readFile(join(fontsDir, 'Inter-Medium.ttf')),
+    ]);
+    interBold = boldBuffer.buffer.slice(
+      boldBuffer.byteOffset,
+      boldBuffer.byteOffset + boldBuffer.byteLength
+    );
+    interMedium = mediumBuffer.buffer.slice(
+      mediumBuffer.byteOffset,
+      mediumBuffer.byteOffset + mediumBuffer.byteLength
+    );
+  }
+  return { interBold, interMedium };
+}
 
 export async function GET(request: NextRequest) {
+  const fonts = await loadFonts();
+
   const { searchParams, origin } = new URL(request.url);
 
   // Get parameters with defaults
@@ -31,24 +59,10 @@ export async function GET(request: NextRequest) {
           width: '100%',
           display: 'flex',
           flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          backgroundColor: '#ffffff',
-          padding: 60,
+          backgroundColor: '#FAFAF9',
+          fontFamily: 'Inter',
         }}
       >
-        {/* Top accent line */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 8,
-            backgroundColor: '#000000',
-          }}
-        />
-
         {/* Left side - Text content */}
         <div
           style={{
@@ -56,19 +70,23 @@ export async function GET(request: NextRequest) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             justifyContent: 'center',
-            maxWidth: 700,
+            flex: 1,
+            padding: 60,
             paddingRight: 40,
+            backgroundColor: '#1C1917',
           }}
         >
           {/* Title */}
           <div
             style={{
               fontSize: isPost ? 48 : 64,
-              fontWeight: 600,
-              color: '#000000',
+              fontWeight: 700,
+              color: '#FAFAF9',
               lineHeight: 1.2,
-              marginBottom: description ? 20 : 0,
+              marginBottom: description ? 24 : 0,
+              letterSpacing: '-0.02em',
               display: 'flex',
+              maxWidth: 650,
             }}
           >
             {title}
@@ -79,72 +97,100 @@ export async function GET(request: NextRequest) {
             <div
               style={{
                 fontSize: 24,
-                color: '#666666',
-                lineHeight: 1.4,
+                color: '#A8A29E',
+                lineHeight: 1.5,
+                fontWeight: 500,
                 display: 'flex',
+                maxWidth: 600,
               }}
             >
               {description}
             </div>
           )}
+
         </div>
 
-        {/* Right side - Avatar */}
+        {/* Right side - Avatar with branding above */}
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+            justifyContent: 'flex-end',
+            backgroundColor: '#FAFAF9',
           }}
         >
+          {/* Branding above avatar */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-end',
+              padding: 32,
+              paddingBottom: 0,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 36,
+                color: '#1C1917',
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              William Kwao
+            </div>
+            <div
+              style={{
+                fontSize: 18,
+                color: '#57534E',
+                fontWeight: 500,
+                marginTop: 6,
+              }}
+            >
+              Software Engineer & Writer
+            </div>
+            <div
+              style={{
+                fontSize: 16,
+                color: '#A8A29E',
+                fontWeight: 500,
+                marginTop: 4,
+              }}
+            >
+              kwao.io
+            </div>
+          </div>
+
           <img
             src={avatarUrl}
             alt=""
             style={{
-              width: 280,
-              height: 280,
+              height: 400,
+              width: 400,
+              marginBottom: '-70px',
             }}
           />
-        </div>
-
-        {/* Footer */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 40,
-            left: 60,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-          }}
-        >
-          <div
-            style={{
-              fontSize: 24,
-              color: '#000000',
-              fontWeight: 500,
-            }}
-          >
-            kwao.io
-          </div>
-          {isPost && (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-              }}
-            >
-              <div style={{ fontSize: 24, color: '#999999' }}>•</div>
-              <div style={{ fontSize: 24, color: '#666666' }}>William Kwao</div>
-            </div>
-          )}
         </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: 'Inter',
+          data: fonts.interBold!,
+          weight: 700,
+          style: 'normal',
+        },
+        {
+          name: 'Inter',
+          data: fonts.interMedium!,
+          weight: 500,
+          style: 'normal',
+        },
+      ],
     }
   );
 }
