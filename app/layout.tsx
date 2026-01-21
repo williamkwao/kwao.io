@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Oxygen, Mulish, Source_Serif_4 } from 'next/font/google';
 import StyledComponentsRegistry from '@/lib/registry';
+import { Analytics } from "@vercel/analytics/next"
+
 import './globals.css';
 
 const oxygen = Oxygen({
@@ -71,6 +73,8 @@ export default function RootLayout({
     >
       <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <Analytics />
+
       </body>
     </html>
   );
