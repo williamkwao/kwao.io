@@ -55,6 +55,11 @@ export default function BlogPostClient(props: BlogPostClientProps) {
                   components={{
                     hr: () => <div className="divider">•  •  •</div>,
                     thematic_break: () => <div className="divider">•  •  •</div>,
+                    blockquote: (props: any) => (
+                      <blockquote className="pull-quote">
+                        {props.children}
+                      </blockquote>
+                    ),
                   }}
                 />
               </div>
@@ -165,6 +170,24 @@ const BlogPostSection = styled.section`
       margin: 48px 0;
       letter-spacing: 0.5em;
       color: #999999;
+    }
+
+    .pull-quote {
+      display: block;
+      margin: 32px 0;
+      padding: 0 0 0 24px;
+      border-left: 3px solid #722F37;
+      font-style: italic;
+      font-size: 21px;
+      line-height: 1.58;
+      letter-spacing: -0.003em;
+      color: rgba(0, 0, 0, 0.68);
+      font-family: var(--font-mulish), 'Muli', Georgia, serif;
+    }
+
+    .pull-quote::before,
+    .pull-quote::after {
+      content: none;
     }
   }
 

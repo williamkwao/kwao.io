@@ -18,7 +18,7 @@ This is where we are now.
 
 ***
 
-Every few decades, software engineering quietly changes what it values.
+> Every few decades, software engineering quietly changes what it values.
 
 Not through a press release.
 
@@ -38,7 +38,7 @@ AI code generation is not a break from that pattern. It's the next step in it.
 
 ***
 
-*Abstraction Has Always Changed What "Good" Means*
+> Abstraction Has Always Changed What "Good" Means
 
 Writing assembly was once a mark of mastery. You controlled memory, registers, timing. You knew exactly what the machine would do because you told it, instruction by instruction.
 
