@@ -7,11 +7,8 @@ export default function ConfirmPage() {
   return (
     <Layout>
       <ConfirmStyles>
-        <h1>Just one more thing...</h1>
-        <p>
-          Thank you for subscribing. Check your inbox and confirm your
-          subscription.
-        </p>
+        <h1>You're in.</h1>
+        <p>Thanks for subscribing.</p>
       </ConfirmStyles>
     </Layout>
   );
