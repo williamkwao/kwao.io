@@ -50,7 +50,13 @@ export default function BlogPostClient(props: BlogPostClientProps) {
                 />
               ) : null}
               <div className="html-content">
-                <TinaMarkdown content={post.body} />
+                <TinaMarkdown
+                  content={post.body}
+                  components={{
+                    hr: () => <div className="divider">•  •  •</div>,
+                    thematic_break: () => <div className="divider">•  •  •</div>,
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -143,17 +149,22 @@ const BlogPostSection = styled.section`
     }
 
     hr {
-      background: transparent;
-      margin-top: 40px;
-      margin-bottom: 42px;
       border: none;
-      text-align: center;
+      margin-top: 48px;
+      margin-bottom: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100px;
+      height: 1px;
+      background-color: #000000;
+      display: block;
     }
 
-    hr::before {
-      content: '...';
-      letter-spacing: 0.6em;
-      font-style: italic;
+    .divider {
+      text-align: center;
+      margin: 48px 0;
+      letter-spacing: 0.5em;
+      color: #999999;
     }
   }
 
