@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { format } from 'date-fns';
 import type { PostSummary } from '@/lib/posts';
+import Signup from './Signup';
 
 const social = [
   {
@@ -106,6 +107,8 @@ export default function HomeContent({ posts }: HomeContentProps) {
           <Link href="/blog">View all posts →</Link>
         </div>
       </RecentPostsSection>
+
+      <Signup />
     </HomePageStyled>
   );
 }
