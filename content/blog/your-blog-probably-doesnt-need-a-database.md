@@ -1,10 +1,11 @@
 ---
 title: Your Blog Probably Doesn't Need a Database
-date: 2026-01-27T00:00:00.000Z
+date: 2026-01-28T00:00:00.000Z
 description: >-
-  Why Git-based CMSs like Tina and Decap deserve more attention. After migrating
-  my personal site, I explore why most blogs don't need database-backed
-  solutions and how we often overcomplicate our technical stack.
+  After migrating my personal site, I explore why most blogs don't need
+  database-backed solutions and how we often overcomplicate our technical stack.
+  Git-based CMSs like Tina and Decap deserve more attention
+featuredpost: true
 featuredimage: /img/git-cms-featured.png
 ---
 
@@ -12,7 +13,7 @@ Last weekend, I migrated my personal website from Gatsby 2 + Netlify CMS to Next
 
 This got me thinking: **why don't Git-based CMSs get more love?**
 
-Despite having solid players in the space - Tina CMS, Netlify CMS (now Decap CMS), Forestry (now part of Tina), and newer entrants like Keystatic - most developers still default to database-backed headless CMSs like Contentful, Sanity, or Strapi when building content sites.
+Despite having solid players in the space - Tina CMS, Netlify CMS (now Decap CMS), and newer entrants like Keystatic - most developers still default to database-backed headless CMSs like Contentful, Sanity, or Strapi when building content sites.
 
 Why do we automatically reach for database-backed solutions when building content sites?
 
