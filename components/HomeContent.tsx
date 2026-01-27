@@ -308,12 +308,14 @@ const PostCard = styled.article`
   @media only screen and (min-width: 600px) {
     .post-inner {
       flex-direction: row;
+      align-items: stretch;
     }
 
     .post-image {
       width: 200px;
       min-width: 200px;
-      height: 140px;
+      height: auto;
+      min-height: 140px;
     }
 
     .post-content {
