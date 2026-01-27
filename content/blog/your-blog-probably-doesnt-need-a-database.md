@@ -119,13 +119,11 @@ Sometimes complexity is necessary. But for a blog? Your content can just be file
 
 If you're building a content site or considering a migration, here are the major players in the Git-based CMS space:
 
-**Tina CMS** - Modern visual editor with real-time preview, excellent developer experience, GraphQL API for querying content. Actively maintained and growing. Great TypeScript support.
+**[Tina CMS](https://tina.io/tinacms)** - Modern visual editor with real-time preview, excellent developer experience, GraphQL API for querying content. Actively maintained and growing. Great TypeScript support.
 
-**Decap CMS** (formerly Netlify CMS) - Mature, open-source, widely adopted. Large community and ecosystem. Works with any static site generator. Simple configuration via YAML.
+**[Decap CMS](https://decapcms.org/)** (formerly Netlify CMS) - Mature, open-source, widely adopted. Large community and ecosystem. Works with any static site generator. Simple configuration via YAML.
 
-**Keystatic** - Newer player from the Thinkmill team. Component-focused editing experience. Built for structured content with a modern UI.
-
-**Forestry** (now merged into Tina) - Was a pioneer in this space. If you used Forestry, Tina is the evolution of that product.
+**[Keystatic](https://keystatic.com/)** - Newer player from the Thinkmill team. Component-focused editing experience. Built for structured content with a modern UI.
 
 All of these share the same core philosophy: your content is just files in your Git repo. They differ in editing UX, configuration approaches, and ecosystem integration - but the fundamental simplicity remains.
 
