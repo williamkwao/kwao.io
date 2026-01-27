@@ -2,12 +2,10 @@
 title: Your Blog Probably Doesn't Need a Database
 date: 2026-01-27T00:00:00.000Z
 description: >-
-  A practical look at why Git-based CMSs like Tina, Decap, and Keystatic deserve
-  more attention. After migrating my 5-year-old personal site from Gatsby 2 +
-  Netlify CMS to Next.js + Tina CMS, I explore why most blogs don't need
-  database-backed headless CMSs, when simpler file-based solutions work better,
-  and how we often overcomplicate our technical decisions.
-featuredimage: /img/git-base.png
+  Why Git-based CMSs like Tina and Decap deserve more attention. After migrating
+  my personal site, I explore why most blogs don't need database-backed
+  solutions and how we often overcomplicate our technical stack.
+featuredimage: /img/Screenshot 2026-01-26 at 10.29.41 PM.png
 ---
 
 Last weekend, I migrated my personal website from Gatsby 2 + Netlify CMS to Next.js + Tina CMS (Gatsby 2... I know, I'm showing my age 😅). The entire process took a weekend, and there were zero visual changes to the site. But it reminded me how much I value the Git-based CMS approach.
