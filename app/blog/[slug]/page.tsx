@@ -3,15 +3,19 @@ import { notFound } from 'next/navigation';
 import client from '@/tina/__generated__/client';
 import BlogPostClient from './client';
 
-// Force dynamic rendering until Tina Cloud indexes the schema
-export const dynamic = 'force-dynamic';
-
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// generateStaticParams removed temporarily - will be restored once Tina Cloud indexes the schema
-// This makes pages render dynamically at request time instead of build time
+// Generate static pages for all blog posts at build time
+export async function generateStaticParams() {
+  const posts = await client.queries.postConnection();
+  return (
+    posts.data.postConnection.edges?.map((edge) => ({
+      slug: edge?.node?._sys.filename,
+    })) || []
+  );
+}
 
 export async function generateMetadata({
   params,
