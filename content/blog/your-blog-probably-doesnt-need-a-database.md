@@ -41,7 +41,7 @@ You now have:
 
 ## The Alternative: Git-Based CMSs
 
-Git-based CMSs like Tina, Netlify CMS, and Forestry take a different approach. Your content lives as Markdown files in your Git repository, right alongside your code.
+Git-based CMSs like Tina & Decap take a different approach. Your content lives as Markdown files in your Git repository, right alongside your code.
 
 ![](/img/git-base.png)
 
