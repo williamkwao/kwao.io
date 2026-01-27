@@ -1,6 +1,6 @@
 ---
 title: Your Blog Probably Doesn't Need a Database
-date: 2026-01-02T00:00:00.000Z
+date: 2026-01-27T00:00:00.000Z
 description: >-
   A practical look at why Git-based CMSs like Tina, Decap, and Keystatic deserve
   more attention. After migrating my 5-year-old personal site from Gatsby 2 +
