@@ -36,17 +36,17 @@ export async function GET(request: NextRequest) {
 
   // Get parameters with defaults
   const title = searchParams.get('title') || 'William Kwao';
-  const rawDescription = searchParams.get('description') || '';
-  const type = searchParams.get('type') || 'default'; // home, blog, post, default
 
-  // Truncate description if too long (max 120 characters)
-  const maxLength = 120;
-  const description = rawDescription.length > maxLength
-    ? rawDescription.slice(0, maxLength).trim() + '...'
-    : rawDescription;
+  // Dynamic font size based on title length
+  const getTitleFontSize = (text: string) => {
+    const len = text.length;
+    if (len < 25) return 72;  // Short titles - big and bold
+    if (len < 50) return 60;  // Medium titles
+    if (len < 80) return 52;  // Longer titles
+    return 44;                 // Very long titles
+  };
 
-  // Customize based on type
-  const isPost = type === 'post';
+  const titleFontSize = getTitleFontSize(title);
 
   // Avatar image URL
   const avatarUrl = `${origin}/images/avatar.svg`;
@@ -79,11 +79,10 @@ export async function GET(request: NextRequest) {
           {/* Title */}
           <div
             style={{
-              fontSize: isPost ? 48 : 64,
+              fontSize: titleFontSize,
               fontWeight: 700,
               color: '#FAFAF9',
               lineHeight: 1.2,
-              marginBottom: description ? 24 : 0,
               letterSpacing: '-0.02em',
               display: 'flex',
               maxWidth: 650,
@@ -91,22 +90,6 @@ export async function GET(request: NextRequest) {
           >
             {title}
           </div>
-
-          {/* Description */}
-          {description && (
-            <div
-              style={{
-                fontSize: 24,
-                color: '#A8A29E',
-                lineHeight: 1.5,
-                fontWeight: 500,
-                display: 'flex',
-                maxWidth: 600,
-              }}
-            >
-              {description}
-            </div>
-          )}
 
         </div>
 
