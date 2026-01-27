@@ -7,6 +7,7 @@ description: >-
   Netlify CMS to Next.js + Tina CMS, I explore why most blogs don't need
   database-backed headless CMSs, when simpler file-based solutions work better,
   and how we often overcomplicate our technical decisions.
+featuredimage: /img/git-base.png
 ---
 
 Last weekend, I migrated my personal website from Gatsby 2 + Netlify CMS to Next.js + Tina CMS (Gatsby 2... I know, I'm showing my age 😅). The entire process took a weekend, and there were zero visual changes to the site. But it reminded me how much I value the Git-based CMS approach.
@@ -43,7 +44,7 @@ You now have:
 
 Git-based CMSs like Tina, Netlify CMS, and Forestry take a different approach. Your content lives as Markdown files in your Git repository, right alongside your code.
 
-\[See diagram below]
+![](/img/git-base.png)
 
 Here's what this actually looks like:
 
