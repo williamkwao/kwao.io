@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import Layout from '@/components/Layout';
 import Signup from '@/components/Signup';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import CodeBlock from '@/components/CodeBlock';
 
 interface BlogPostClientProps {
   query: string;
@@ -59,6 +60,9 @@ export default function BlogPostClient(props: BlogPostClientProps) {
                       <blockquote className="pull-quote">
                         {props.children}
                       </blockquote>
+                    ),
+                    code_block: (props: any) => (
+                      <CodeBlock lang={props.lang}>{props.value}</CodeBlock>
                     ),
                   }}
                 />
@@ -134,13 +138,7 @@ const BlogPostSection = styled.section`
       font-family: var(--font-mulish), 'Muli', sans-serif;
     }
 
-    pre {
-      background: hsla(0, 0%, 0%, 0.04);
-      border-radius: 3px;
-      padding: 1.45rem;
-      overflow: auto;
-    }
-
+    /* Inline code styling */
     code {
       font-size: 0.85rem;
       background-color: hsla(0, 0%, 0%, 0.04);
@@ -148,6 +146,7 @@ const BlogPostSection = styled.section`
       padding: 0.2em 0.4em;
     }
 
+    /* Reset for code inside Shiki-highlighted blocks */
     pre code {
       background: none;
       padding: 0;
