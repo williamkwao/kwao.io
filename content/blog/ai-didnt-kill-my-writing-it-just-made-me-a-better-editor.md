@@ -2,6 +2,7 @@
 title: AI Didn't Kill My Writing. It Just Made Me a Better Editor
 date: 2026-02-12T00:00:00.000Z
 description: 'I felt guilty about using AI to refine my writing. Then my friend, a professor at Berkeley, reminded me that every great writer has always had editors. AI just democratized access'
+featuredimage: /img/blog.png
 ---
 
 For years, my writing process was beautifully chaotic. I'd dump all my thoughts onto a page: messy, unstructured, raw. Then I'd spend days, sometimes weeks, reading through that word vomit, rearranging sentences, finding the throughline, shaping it into something that actually told a story. I'd send drafts to friends, get feedback, revise again. Rinse and repeat. The whole process could take weeks.
@@ -41,7 +42,7 @@ AI is just helping me do what copy editors have done for writers forever. It's h
 
 ## The Privilege of Editing
 
-Felix's point about access really stuck with me. For most of human history, having someone help you refine your writing was a luxury. You needed to be in academia, or wealthy enough to hire an editor, or lucky enough to have incredibly generous friends with time to spare.
+Felix's point about access really stuck with me. For most of human history, having someone help you refine your writing was a luxury. You needed to be in academia, or have enough funds to hire an editor, or lucky enough to have incredibly generous friends with time to spare.
 
 Now? That capability is democratized. A single parent working two jobs can write their memoir and get editorial feedback at 11 PM. A non-native English speaker can ensure their ideas come through clearly. A self-published author can compete with traditionally published ones.
 
