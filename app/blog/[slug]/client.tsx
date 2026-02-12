@@ -3,10 +3,19 @@
 import { useTina } from 'tinacms/dist/react';
 import styled from 'styled-components';
 import { format } from 'date-fns';
+import dynamic from 'next/dynamic';
 import Layout from '@/components/Layout';
 import Signup from '@/components/Signup';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import CodeBlock from '@/components/CodeBlock';
+
+const CodeBlock = dynamic(() => import('@/components/CodeBlock'), {
+  ssr: false,
+  loading: () => (
+    <pre>
+      <code>Loading...</code>
+    </pre>
+  ),
+});
 
 interface BlogPostClientProps {
   query: string;
